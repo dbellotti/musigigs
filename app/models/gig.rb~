@@ -1,0 +1,8 @@
+class Gig < ActiveRecord::Base
+  belongs_to :user
+  
+  def new
+    puts 'apply for a new gig'
+  end
+
+end

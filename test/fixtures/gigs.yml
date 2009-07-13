@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  band: MyString
+  venue: MyString
+  date: 2009-07-06
+  time: 2009-07-06 18:11:29
+
+two:
+  band: MyString
+  venue: MyString
+  date: 2009-07-06
+  time: 2009-07-06 18:11:29

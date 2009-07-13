@@ -1,0 +1,58 @@
+<p>
+  <b>Entity:</b>
+  <%=h @user.entity %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Firstname:</b>
+  <%=h @user.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%=h @user.lastname %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @user.city %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @user.zip %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @user.state %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @user.phone %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%=h @user.image %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @user.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
