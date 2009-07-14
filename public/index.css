@@ -7,12 +7,16 @@
 #grey_box strong {font-size:16px; font-weight:bold; color:#FF6600; text-decoration:none;}
 #grey_box b {color:#324D7C;}
 
+h2.headline {text-align:right; font-weight:normal; color:#ffffff; margin:0px;font-size:32px; text-decoration:none; border-bottom:0px; background:#324D7C url(/img/index_headline.jpg); padding:10px;}
+h2.headline:hover {color:#FFAA55;}
+h2.headline strong {color:#FFFFFF;}
+
 .button {
 margin:auto;
 width:176px;
 height:30px;
 padding:5px;
-background:#bbbbbb;
+background:#746BC2;
 color:#FFFFFF;
 font-size:16px;
 font-family:Verdana, Arial, Helvetica, sans-serif;
@@ -26,7 +30,7 @@ color:#FFFFFF;
 
 .button a:hover {
 text-decoration:none;
-color:#333333;
+color:#000066;
 }
 
 #results {
@@ -40,6 +44,4 @@ padding:0px;
 width:190px;
 color:#333333;
 float:left;
-background:#F4F4F4;
-border:1px solid #cccccc;
 }
