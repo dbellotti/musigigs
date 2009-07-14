@@ -1,0 +1,30 @@
+<h1> Welcome <%= @user.user_name %></h1><br />
+
+<h2>Upcoming Gigs</h2>
+<table>
+  <tr>
+    <th>Band</th>
+    <th>Date</th>
+  </tr>
+
+<% @gigs.each do |gig| %>
+  <tr>
+    <td><%=h gig.band_title %></td>
+    <td><%=h gig.time %></td>
+  </tr>
+<% end %>
+</table><br />
+
+
+<h2>Create a new Gig</h2>
+<%= button_to 'make new random gig', :action => 'new' %><br />
+
+
+<h2>Find new Gigs</h2>
+<%= select_date %>
+
+
+
+  
+  
+<br /><br /><%= button_to 'Logout', :controller => 'account', :action => 'logout' %>

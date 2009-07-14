@@ -9,5 +9,5 @@ Users will redirect to => musigig profile <br /><br />
 Gigs...<br />
 <%= @gigs %><br />
 
-<%= link_to 'Apply for Gig', :controller => 'gigs', :action => 'find_open_gigs' %>
+<%= link_to 'Apply for Gig', :controller => 'gigs', :action => 'search' %>
 <%= button_to 'Logout', :action => 'logout' %>

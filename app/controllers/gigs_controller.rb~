@@ -1,7 +1,7 @@
 class GigsController < ApplicationController
 
   def index
-    @gigs = self.find(:all)
+    @gigs = Gig.all
     
     respond_to do |format|
       format.html # index.html.erb
