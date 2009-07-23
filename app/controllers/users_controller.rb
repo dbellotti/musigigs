@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController 
   # GET /users
   # GET /users.xml
   def index
@@ -57,6 +57,9 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
+    #if source == 'account'
+    #  redirect_to(:controller => 'account', :action => 'index')
+    #end
     @user = User.find(params[:id])
 
     respond_to do |format|
@@ -82,4 +85,5 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+     
 end

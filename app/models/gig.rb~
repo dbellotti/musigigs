@@ -1,8 +1,11 @@
 class Gig < ActiveRecord::Base
-  belongs_to :user
-  
-  def new
-    puts 'apply for a new gig'
+  has_and_belongs_to_many :user
+    
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['band_title LIKE ? or date Like #{}', "%#{search}%"])
+    else
+      find(:all)
+    end
   end
-
 end

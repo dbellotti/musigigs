@@ -2,6 +2,8 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
 
+  has_many :gigs
+
   validates_presence_of     :full_name, :user_name, :email, :entity_type, :entity_title
   validates_uniqueness_of   :full_name, :user_name, :email, :entity_title
 
@@ -11,7 +13,7 @@ class User < ActiveRecord::Base
   validate		    :password_non_blank
 
   def self.authenticate(name, password)
-    user = self.find_by_name(name)
+    user = self.find_by_user_name(name)
     if user
       expected_password = encrypted_password(password, user.salt)
       if user.hashed_password != expected_password
@@ -34,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
 private
- 
+
   def password_non_blank
     errors.add(:password, "Missing password") if hashed_password.blank?
   end

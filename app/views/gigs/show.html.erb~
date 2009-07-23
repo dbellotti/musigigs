@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @user.full_name %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%=h @user.user_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Entity Type:</b>
+  <%=h @user.entity_type %>
+</p>
+
+
+<%= link_to 'edit', edit_gig_path(@gig) %> |
+<%= link_to 'back', gigs_path %>

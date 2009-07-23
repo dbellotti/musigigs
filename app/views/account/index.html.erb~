@@ -1,13 +1,12 @@
-<h1> Welcome <%= @user.user_name %></h1>
+<h1> Welcome <%= @user.user_name %> of <%= @user.entity_title %></h1><br />
 
+<h2>Profile</h2>
 It's <%= Time.now %><br />
-There are <%= @total_users %> total users<br /><br />
 
-Administrators will redirect to => /users <br />
-Users will redirect to => musigig profile <br /><br />
+There are <%= @total_gigs.count %> total gigs<br /><br />
 
-Gigs...<br />
-<%= @gigs %><br />
 
-<%= link_to 'Apply for Gig', :controller => 'gigs', :action => 'search' %>
-<%= button_to 'Logout', :action => 'logout' %>
+<%= link_to 'MY GIGS', gigs_path %> |
+<%= link_to 'FIND GIGS', :controller => 'gigs', :action => 'search' %> | 
+<%= link_to 'settings', edit_user_path(@user) %> | 
+<%= link_to 'logout', :action => 'logout' %>

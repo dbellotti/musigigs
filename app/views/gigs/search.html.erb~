@@ -1,30 +1,13 @@
-<h1> Welcome <%= @user.user_name %></h1><br />
-
-<h2>Upcoming Gigs</h2>
-<table>
-  <tr>
-    <th>Band</th>
-    <th>Date</th>
-  </tr>
-
-<% @gigs.each do |gig| %>
-  <tr>
-    <td><%=h gig.band_title %></td>
-    <td><%=h gig.time %></td>
-  </tr>
-<% end %>
-</table><br />
-
-
-<h2>Create a new Gig</h2>
-<%= button_to 'make new random gig', :action => 'new' %><br />
-
+<h1> Welcome <%= @user.user_name %> of <%= @user.entity_title %></h1><br />
 
 <h2>Find new Gigs</h2>
-<%= select_date %>
+<% form_tag gigs_path, :action => 'search_by_band', :method => 'get' do %>
+  <p>
+    <%=h text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 
-
-  
-  
-<br /><br /><%= button_to 'Logout', :controller => 'account', :action => 'logout' %>
+<br />
+<%= link_to 'back', :controller => 'account', :action => 'index' %>

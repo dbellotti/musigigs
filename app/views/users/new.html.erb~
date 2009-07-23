@@ -2,20 +2,6 @@
 
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
-  
-    t.string   "full_name"
-    t.string   "user_name"
-    t.string   "hashed_password"
-    t.string   "salt"
-    t.string   "email"
-    t.string   "entity_type"
-    t.string   "entity_title"
-    t.string   "city"
-    t.string   "zip"
-    t.string   "state"
-    t.string   "phone"
-    t.string   "image"
-    t.string   "url"
   <p>
     <%= f.label :full_name %><br />
     <%= f.text_field :full_name, :size => 40 %>
@@ -45,8 +31,13 @@
     <%= f.text_field :entity_title, :size => 40 %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Create' %>    
   </p>
 <% end %>
 
-<%= link_to 'Back', users_path %>
+
+<%= if request.referrer == 'http://localhost:3000/users'
+      link_to 'Back', users_path
+    else
+      link_to 'Back', :controller => 'account', :action => 'login' 
+    end %>

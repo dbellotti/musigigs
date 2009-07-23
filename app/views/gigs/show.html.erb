@@ -1,0 +1,28 @@
+<p>
+  <b>Band:</b>
+  <%=h @gig.band_title %>
+</p>
+
+<p>
+  <b>Venue:</b>
+  <%=h @gig.venue_title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @gig.date %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%=h @gig.time %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%=h @gig.info %>
+</p>
+
+
+<%= link_to 'edit', edit_gig_path(@gig) %> |
+<%= link_to 'back', gigs_path %>

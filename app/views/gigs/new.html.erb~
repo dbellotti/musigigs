@@ -1,0 +1,30 @@
+<h1>Post Gig</h1>
+
+<% form_for(@gig) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :band_title %><br />
+    <%= f.text_field :band_title, :size => 40 %>
+  </p>
+  <p>
+    <%= f.label :venue_title %><br />
+    <%= f.text_field :venue_title, :size => 40 %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.text_field :date, :size => 40 %>
+  </p>  
+  <p>
+    <%= f.label :time %><br />
+    <%= f.text_field :time %>
+  </p>
+  <p>
+    <%= f.label :info %><br />
+    <%= f.text_area :info %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>    
+  </p>
+<% end %>
+
+link_to 'back', gigs_path

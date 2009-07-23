@@ -18,21 +18,17 @@ class AccountController < ApplicationController
   end
 
   def index
-    @total_users = User.count
-    @user = User.find(session[:user_id])
-    
-    @gigs = booked_events(@user)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @gigs }
-    end        
+    if session[:user_id] == nil
+      redirect_to(:action => 'login')
+    else
+      @user = User.find(session[:user_id])      
+      @total_gigs = Gig.search_by_band(@user.entity_title)
+      @gigs = Gig.find(:all)
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @total_gigs }
+      end        
+    end
   end
   
-private  
-  
-  def booked_events(user)
-    @gigs = Gig.find_by_band_title(:all)    
-  end
-
 end
