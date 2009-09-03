@@ -1,0 +1,23 @@
+<h1>New Band</h1>
+
+<% form_for(@band) do |form| %>
+<fieldset>
+  <legend><%= @title %></legend>
+  <%= error_messages_for 'band' %>
+  
+  <div id="form_row">
+    <%= text_field_for form, 'name' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'genre' %>
+  </div>
+  <div id="form_row">
+    <%= form.label 'Description:' %>
+    <%= form.text_area 'description' %>
+  </div>
+  <br />
+  <%= submit_tag 'Create', :class => 'submit' %>     
+  <%= link_to 'back', :controller => 'user', :action => 'index' %>                      
+</fieldset>
+<% end %>
+

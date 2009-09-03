@@ -1,0 +1,31 @@
+<h1>Editing <%=h @venue.name %></h1>
+
+<% form_for(@venue) do |form| %>
+<fieldset>
+  <legend><%= @title %></legend>
+  <%= error_messages_for 'venue' %>
+  
+  <div id="form_row">
+    <%= text_field_for form, 'name' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'street' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'city' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'state' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'zip_code' %>
+  </div>
+  <div id="form_row">
+    <%= form.label 'Description:' %>
+    <%= form.text_area 'description', :rows => Venue::TEXT_ROWS, :cols => Venue::TEXT_COLS %> 
+  </div>
+  <br />
+  <%= submit_tag 'Update', :class => 'submit' %>     
+  <%= link_to 'back', :action => 'show' %>                      
+</fieldset>
+<% end %>

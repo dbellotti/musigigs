@@ -1,0 +1,16 @@
+require 'test_helper'
+
+class RememberMeTest < ActionController::IntegrationTest
+  include ApplicationHelper
+
+  fixtures :all
+  
+  def setup
+    @user = users(:valid_user)
+  end
+
+  # Replace this with your real tests.
+  test "the truth" do
+    assert true
+  end
+end

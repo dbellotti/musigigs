@@ -9,32 +9,87 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090722232612) do
+ActiveRecord::Schema.define(:version => 20090824214541) do
 
-  create_table "gigs", :force => true do |t|
-    t.string   "band_title"
-    t.string   "venue_title"
-    t.date     "date"
-    t.time     "time"
+  create_table "bands", :force => true do |t|
+    t.string   "name",        :default => ""
+    t.string   "genre",       :default => ""
+    t.text     "description", :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "info"
+  end
+
+  create_table "bands_users", :id => false, :force => true do |t|
+    t.integer  "band_id",    :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gigs", :force => true do |t|
+    t.integer  "venue_id",                    :null => false
+    t.integer  "band_id",                     :null => false
+    t.date     "date"
+    t.time     "time"
+    t.string   "event",       :default => ""
+    t.string   "street",      :default => ""
+    t.string   "city",        :default => ""
+    t.string   "state",       :default => ""
+    t.string   "zip_code",    :default => ""
+    t.text     "description", :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "specs", :force => true do |t|
+    t.integer  "user_id",                    :null => false
+    t.string   "first_name", :default => ""
+    t.string   "last_name",  :default => ""
+    t.string   "gender"
+    t.date     "birthdate"
+    t.date     "date"
+    t.string   "occupation", :default => ""
+    t.string   "city",       :default => ""
+    t.string   "state",      :default => ""
+    t.string   "zip_code",   :default => ""
+    t.text     "bio",        :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "full_name"
-    t.string   "user_name"
-    t.string   "hashed_password"
-    t.string   "salt"
+    t.string   "screen_name"
     t.string   "email"
-    t.string   "entity_type"
-    t.string   "entity_title"
-    t.string   "city"
-    t.string   "zip"
-    t.string   "state"
-    t.string   "phone"
-    t.string   "image"
-    t.string   "url"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "authorization_token"
+  end
+
+  create_table "users_venues", :id => false, :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "venue_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "venues", :force => true do |t|
+    t.string   "name",        :default => ""
+    t.string   "street",      :default => ""
+    t.string   "city",        :default => ""
+    t.string   "state",       :default => ""
+    t.string   "zip_code",    :default => ""
+    t.text     "description", :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,38 @@
+<h1>Editing <%= @venue.name %>'s Gig</h1>
+
+<% form_for(@gig) do |form| %>
+<fieldset>
+  <legend><%= @title %></legend>
+  <%= error_messages_for 'gig' %>
+  
+  <div id="form_row">
+    <%= text_field_for form, 'venue_id' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'band_id' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'event' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'street' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'city' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'state' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'zip_code' %>
+  </div>
+  <div id="form_row">
+    <%= form.label 'Description:' %>
+    <%= form.text_area 'description', :rows => Band::TEXT_ROWS, :cols => Band::TEXT_COLS %> 
+  </div>
+  <br />
+  <%= submit_tag 'Update', :class => 'submit' %>     
+  <%= link_to 'back', :action => 'show' %>                      
+</fieldset>
+<% end %>
+

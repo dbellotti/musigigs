@@ -1,0 +1,89 @@
+<h1>Account Manager</h1>
+
+<div id="page_width">
+  <div id="left_column">
+    <div class="sidebar_box">
+      <h2>
+        <span class="header">Basic User Info</span>
+        <span class="edit_link"><%= link_to "(edit)", :action => "edit" %></span>
+        <br clear="all" />
+      </h2>
+      <div class="sidebar_box_contents">
+        <table>
+          <tr>
+            <td class="label">Screen name:</td>
+            <td><%= @user.screen_name %></td>
+          </tr>
+          <tr>
+            <td class="label">Email:</td>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td class="label">Password:</td>
+            <td>********</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="sidebar_box">
+      <h2>
+        <span class="header">Spec</span>
+        <span class="edit_link">
+          <%= link_to "(edit)", :controller => "spec", :action => "edit" %>
+        </span>
+        <br clear="all" />
+      </h2>
+      <div class="sidebar_box_contents">
+        <table>
+          <%= render :partial => "spec/field_row", :collection => Spec::ALL_FIELDS %>
+        </table>
+      </div>
+    </div>
+    <div class="sidebar_box">
+      <h2>
+        <span class="edit_link">
+          <%= link_to '(create new band)', :controller => 'bands', :action => 'new' %>
+        </span>        
+        <br clear="all" />
+      </h2>    
+    </div>
+    <%= render :partial => 'bands/sidebar_box', :collection => @bands %> 
+    <div class="sidebar_box">
+      <h2>
+        <span class="edit_link">
+          <%= link_to '(create new venue)', :controller => 'venues', :action => 'new' %>
+        </span>        
+        <br clear="all" />
+      </h2>  
+    </div>
+    <%= render :partial => 'venues/sidebar_box', :collection => @venues %>    
+    <%= render :partial => 'gigs/sidebar_box', :collection => @gigs %>        
+  </div>
+  <div id="main_content">
+    <div id="full_name">
+      <%=h @spec.full_name.or_else("Your Name") %>
+    </div>
+    <div id="occupation">
+      <%=h @spec.occupation.or_else("Your Occupation") %>
+    </div>
+    <div id="location">
+      <%=h @spec.location.or_else("Your Location") %>
+    </div>
+    <span class="edit_link">
+      <%= link_to "(edit)", :controller => "spec", :action => "edit" %>
+    </span>
+    
+    <hr noshade />
+    Profile URL: <%= link_to profile_for(@user), profile_for(@user) %>
+    <hr noshade />
+
+    <%= @user.screen_name %>'s Bio:
+    <span class="edit_link">
+       <%= link_to "(edit)", :controller => "spec", :action => "edit" %>
+    </span>    
+    <div id="bio">
+      <%= sanitize @user.spec.bio %>
+    </div>    
+  </div>
+</div>
+

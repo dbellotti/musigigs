@@ -1,0 +1,75 @@
+require 'test_helper'
+
+class BandsControllerTest < ActionController::TestCase
+  fixtures :users
+  fixtures :bands
+  
+  def setup
+    @controller = BandsController.new
+    @request    = ActionController::TestRequest.new
+    @response   = ActionController::TestResponse.new
+    @user       = users(:valid_user)
+    @band       = bands(:valid_band)
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:bands)
+  end
+
+  test "should get new" do
+    authorize @user
+    get :new
+    assert_response :success
+  end
+
+  test "should create band" do
+    authorize @user    
+    assert_difference('Band.count') do
+      post :create, :band => { :name => "new name",
+                               :genre => "new genre",
+                               :description => "new description" }
+    end    
+    assert_equal "Band was successfully created.", flash[:notice]
+    assert_redirected_to band_path(assigns(:band))
+  end
+
+  test "should show band" do
+    authorize @user
+    get :show, :id => @band.to_param
+    assert_response :success
+  end
+
+  test "should get edit" do
+    authorize @user
+    get :edit, :id => @band.to_param
+    title = assigns(:title)
+    assert_equal "Update #{@band.name}'s information...", title    
+    assert_response :success
+    assert_template "edit"
+    
+    #assert_form_tag "/bands/#{@band.id}/edit"
+    assert_tag "input", :attributes => { :name => "band[name]" }
+    assert_tag "input", :attributes => { :name => "band[genre]" }
+    assert_submit_button "Update"
+  end
+
+  test "should update band" do
+    authorize @user
+    put :update, :id => @band.to_param, :band => { :name        => "new name", 
+                                                   :genre       => "new genre",
+                                                   :description => "new description" }
+    assert_redirected_to band_path(@band)
+  end
+
+  test "should destroy band" do
+    authorize @user
+    assert_difference('Band.count', -1) do
+      delete :destroy, :id => @band.to_param
+    end
+
+    assert_redirected_to hub_url
+  end
+  
+end

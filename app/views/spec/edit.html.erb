@@ -1,0 +1,34 @@
+<h1></h1>
+<% form_for :spec do |form| %>
+<fieldset>
+  <legend><%= @title %></legend>
+  
+  <%= error_messages_for 'spec' %>
+  <%= text_field_for form, 'first_name' %>
+  <%= text_field_for form, 'last_name' %>
+  <div class="form_row">
+    <label for="gender">Gender:</label>
+    <%= radio_button :spec, :gender, 'Male'   %> Male
+    <%= radio_button :spec, :gender, 'Female' %> Female    
+  </div>
+  <div class="form_row">
+    <label for="birthdate">Birthdate:</label>
+    <%= date_select :spec, :birthdate,
+                           :start_year => Spec::START_YEAR,
+                           :end_year => Time.now.year,
+                           :include_blank => true,
+                           :order => [:month, :day, :year] %>
+  </div>
+  <%= text_field_for form, "occupation" %>
+  <%= text_field_for form, "city" %>
+  <%= text_field_for form, "state" %>
+  <%= text_field_for form, "zip_code", Spec::ZIP_CODE_LENGTH %>
+  <div id="form_row">
+    <%= form.label 'Bio:' %>
+    <%= form.text_area 'bio', :rows => Band::TEXT_ROWS, :cols => Band::TEXT_COLS %>
+  </div>
+  <br />
+  <%= submit_tag "Update", :class => "submit" %> 
+  <%= link_to 'back', hub_url %>                                                
+</fieldset>
+<% end %>

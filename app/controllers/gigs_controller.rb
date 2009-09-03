@@ -1,80 +1,88 @@
 class GigsController < ApplicationController
+  before_filter :protect, :except => :index
 
+  # GET /gigs
+  # GET /gigs.xml
   def index
-    @user = User.find(session[:user_id])
-    @gigs = Gig.search_by_band(@user.entity_title)      
+    @gigs = Gig.all
 
-    @gig_search = Gig.search_by_band(params[:search])      
-     
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @gigs }
-    end        
-  end
-
-  def search
-    @user = User.find(session[:user_id])
-    @gigs = Gig.search_by_date(params[:search]) 
+    end
   end
 
   # GET /gigs/1
   # GET /gigs/1.xml
   def show
     @gig = Gig.find(params[:id])
+    @venue = Venue.find_by_id(@gig.venue_id)
+    if @gig
+      @title = "Musigigs Gig Profile for #{@venue.name}"
+    else
+      flash[:notice] = "No band #{@venue.name} at Musigigs!"
+      redirect_to hub_url
+    end
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @gig }
     end
   end
-  
+
   # GET /gigs/new
   # GET /gigs/new.xml
   def new
+    @user = User.find(session[:user_id])
     @gig = Gig.new
+    @venue = @user.venues.find(params[:id])
 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @gig }
     end
-  end  
-  
+  end
+
   # GET /gigs/1/edit
   def edit
     @gig = Gig.find(params[:id])
+    @venue = Venue.find_by_id(@gig.venue_id)
+    @band = Band.find_by_id(@gig.band_id)
+    @title = "Edit Gig"
   end
-  
-  # POST /gigs/new
-  # POST /gigs/new.xml
+
+  # POST /gigs
+  # POST /gigs.xml
   def create
     @user = User.find(session[:user_id])
-    @gig = Gig.new
-    @gig.band_title = @user.entity_title
-    @gig.time = Time.now
+    @gig = Gig.new(params[:gig])
+    @venue = Venue.find(params[:venue_id])
+    @gig.venue_id = @venue.id
+    @gig.band_id = "0"
 
     respond_to do |format|
       if @gig.save
-        flash[:notice] = "#{@gig.band_title} successfully created gig at #{@gig.time}."
-        format.html { redirect_to(:action => 'index') }
-        format.xml  { render :xml => @gig, :status => :created }
+        @venue.gigs << @gig
+        @venue.save!
+        flash[:notice] = 'Gig was successfully created.'
+        format.html { redirect_to(@gig) }
+        format.xml  { render :xml => @gig, :status => :created, :location => @gig }
       else
-        flash[:notice] = "unable to save, try again?"
-        format.html { render :action => 'new' }
+        format.html { render :action => "new" }
         format.xml  { render :xml => @gig.errors, :status => :unprocessable_entity }
       end
     end
   end
-  
+
   # PUT /gigs/1
   # PUT /gigs/1.xml
   def update
-    @user = User.find(params[:id])
     @gig = Gig.find(params[:id])
 
     respond_to do |format|
       if @gig.update_attributes(params[:gig])
-        flash[:notice] = "#{@gig.band_title} successfully updated a gig."
-        format.html { redirect_to(:action => 'index') }
+        flash[:notice] = 'Gig was successfully updated.'
+        format.html { redirect_to(@gig) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -94,5 +102,4 @@ class GigsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
 end

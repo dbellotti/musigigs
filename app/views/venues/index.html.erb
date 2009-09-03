@@ -1,0 +1,41 @@
+<h1>Venues Hub/Search</h1>
+
+<div id="page_width">
+<hr noshade />
+  <div id="left_column">    
+    <div class="sidebar_box">
+      <% if session[:user_id] %>
+        <h2>     
+          <span class="edit_link">
+            <%= link_to '(create new venue)', :controller => 'venues', :action => 'new' %>
+          </span>
+          <br clear="all" />
+        </h2>
+      <% end %>
+    </div>
+    <%= render :partial => 'venues/sidebar_box', :collection => @venues %>   
+  </div>
+  <div id="main_content">
+    
+    <table>
+      <b>
+      <tr>
+        <th>Venue |</th>
+        <th>Address |</th>
+        <th>Description</th>
+      </tr>
+      </b>
+    <% @venues.each do |venue| %>
+      <tr>
+        <td><%=h venue.name %></td>
+        <td><%=h venue.address %></td>
+        <td><%=h venue.description %></td>
+        <td><%= link_to 'Show', venue %></td>
+        <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
+        <td><%= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+        
+  </div>
+</div>

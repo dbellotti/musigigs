@@ -1,31 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  type: MyString
-  name: MyString
-  email: MyString
-  firstname: MyString
-  lastname: MyString
-  hashed_password: MyString
-  salt: MyString
-  city: MyString
-  zip: MyString
-  state: MyString
-  phone: MyString
-  image: MyString
-  url: MyString
-
-two:
-  type: MyString
-  name: MyString
-  email: MyString
-  firstname: MyString
-  lastname: MyString
-  hashed_password: MyString
-  salt: MyString
-  city: MyString
-  zip: MyString
-  state: MyString
-  phone: MyString
-  image: MyString
-  url: MyString
+valid_user:
+  id: 1
+  screen_name: millikan
+  email: ram@example.com
+  password: electron
+  
+invalid_user:
+  id: 2
+  screen_name: aa/noyes
+  email: anoyes@example,com
+  password: sun

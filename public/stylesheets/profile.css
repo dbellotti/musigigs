@@ -1,0 +1,86 @@
+/* Profile Styles */
+
+#page_width {
+  width: 70%;
+  height: 35em;
+  margin: auto;
+}
+
+td.label {
+  text-align: right;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+input {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.edit_link a {
+  text-decoration: none;
+  color: purple;
+}
+
+#left_column {
+  float: left;
+  width: 300px;
+}
+
+#main_content {
+  margin-left: 320px;
+}
+
+.sidebar_box {  
+  background-color: #262626;
+  -moz-border-radius: 9px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.sidebar_box_contents {
+  padding-left: .5em;
+  padding-bottom: .5em;
+}
+
+.sidebar_box h2 {
+  margin-top: 0px;
+  padding: 6px;
+  background-color: #222222;  
+  -moz-border-radius-topright: 9px;
+  -moz-border-radius-topleft: 9px;
+  font-size: 13px;
+  color: #0AA5C5;
+  font-weight: bold;
+}
+
+.sidebar_box p {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.sidebar_box .header {
+  float: left;
+}
+
+.sidebar_box .edit_link {
+  float: right;
+}
+
+/* Spec Style */
+#full_name {
+  font-size: xx-large;
+}
+
+#occupation{
+  font-size: x-large;
+}
+
+#location {
+  font-size: large;
+}
+
+#bio {
+  padding: 10px;
+}
+
+

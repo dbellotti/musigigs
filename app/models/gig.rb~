@@ -1,11 +1,6 @@
 class Gig < ActiveRecord::Base
-  has_and_belongs_to_many :user
-    
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['band_title LIKE ? or date Like #{}', "%#{search}%"])
-    else
-      find(:all)
-    end
-  end
+  belongs_to :bands
+  belongs_to :venues
+  
+  STRING_FIELDS = %w( event street city state zip_code )
 end

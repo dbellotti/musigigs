@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title><%= @title %></title>
+    <%= stylesheet_link_tag "site" %>
+    <%= stylesheet_link_tag "profile" %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "effects.js" %>
+  </head>
+  <body>
+    <div id="whole_page">
+      <div>
+        <table id="header">
+          <tr>
+            <td id="logo">
+              Musigigs
+            </td>
+            <td id="flash">
+              <% if flash[:notice] -%>
+                <div id="notice">
+                  <%= flash[:notice] %>                  
+                </div>
+              <% end -%>    
+            </td>
+            <td id="nav">
+              <span class="links">
+                <% if logged_in? -%>
+                  <%= nav_link "Hub",  "user", "index" %> |
+                  <%= nav_link "Logout",  "user", "logout" %> 
+                <% else -%>  
+                  <%= nav_link "Register",  "user", "register" %> |
+                  <%= nav_link "Login",     "user", "login" %>
+                <% end -%>  
+              </span>
+              <%= nav_link "Home",      "site" %> |
+              <%= nav_link "Bands",     "bands" %> |
+              <%= nav_link "Venues",    "venues" %> |
+              <%= nav_link "Gigs",      "gigs" %> |              
+              <%= nav_link "About Us",  "site", "about" %> |
+              <%= nav_link "Help",      "site", "help" %>                
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+      <div id="content">
+        <%= yield %>        
+        <br clear="all" />
+      </div>
+      
+      <% if ENV["RAILS_ENV"] == "development" %>
+        <div id="debug">
+          <a href="#" onclick="Element.toggle('params_debug_info');return false">
+          params</a> |
+          <a href="#" onclick="Element.toggle('session_debug_info');return false">
+          session</a> |
+          <a href="#" onclick="Element.toggle('env_debug_info');return false">
+          env</a> |
+          <a href="#" onclick="Element.toggle('request_debug_info');return false">
+          request</a> 
+          <fieldset id="params_debug_info" class="debug_info" style="display:none">
+            <legend>params</legend>
+            <%= debug(params) %>
+          </fieldset>
+          <fieldset id="session_debug_info" class="debug_info" style="display:none">
+            <legend>session</legend>
+            <%= debug(session) %>
+          </fieldset>
+          <fieldset id="env_debug_info" class="debug_info" style="display: none">
+            <legend>env</legend>
+            <%= debug(request.env) %>
+          </fieldset>
+          <fieldset id="request_debug_info" class="debug_info" style="display: none">
+            <legend>request</legend>
+            <%= debug(request) %>
+          </fieldset>
+        </div>
+      <% end %>
+   </div>
+  </body>
+</html>

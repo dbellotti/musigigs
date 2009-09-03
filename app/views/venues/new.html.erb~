@@ -1,0 +1,31 @@
+<h1>New Venue</h1>
+
+<% form_for(@venue) do |form| %>
+<fieldset>
+  <legend>Fill in new venue info...</legend>
+  <%= error_messages_for 'venue' %>
+  
+  <div id="form_row">
+    <%= text_field_for form, 'name' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'street' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'city' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'state' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'zip' %>
+  </div>
+  <div id="form_row">
+    <%= form.label 'Description:' %>
+    <%= form.text_area 'description' %>
+  </div>
+  <br />
+  <%= submit_tag 'Create', :class => 'submit' %>     
+  <%= link_to 'back', :controller => 'user', :action => 'index' %>                      
+</fieldset>
+<% end %>

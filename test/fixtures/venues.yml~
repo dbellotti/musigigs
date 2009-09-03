@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+valid_venue:
+  id: 1
+  name: soho
+  street: 123 Fake Street
+  city: goleta
+  state: ca
+  zip_code: 99999
+  description: cool spot.
+  
+invalid_venue:
+  id: 2
+  name: a
+  street: a
+  city: a
+  state: ca
+  zip_code: 999999
+  description: a
+    
+blank_venue:
+  id: 2
+  

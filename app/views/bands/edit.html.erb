@@ -1,0 +1,22 @@
+<h1>Editing <%= @band.name %></h1>
+
+<% form_for(@band) do |form| %>
+<fieldset>
+  <legend><%= @title %></legend>
+  <%= error_messages_for 'band' %>
+  
+  <div id="form_row">
+    <%= text_field_for form, 'name' %>
+  </div>
+  <div id="form_row">
+    <%= text_field_for form, 'genre' %>
+  </div>
+  <div id="form_row">
+    <%= form.label 'Description:' %>
+    <%= form.text_area 'description', :rows => Band::TEXT_ROWS, :cols => Band::TEXT_COLS %> 
+  </div>
+  <br />
+  <%= submit_tag 'Update', :class => 'submit' %>     
+  <%= link_to 'back', :action => 'show' %>                      
+</fieldset>
+<% end %>

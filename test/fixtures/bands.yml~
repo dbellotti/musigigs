@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+valid_band:
+  id: 1
+  name: dp fresh
+  genre: rock
+  description: blah blah
+  
+blank_band:
+  id: 2

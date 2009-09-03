@@ -1,0 +1,32 @@
+class BandController < ApplicationController
+  before_filter :protect, :only => { :index, :edit }
+
+  def index
+    @title = "Band Profile"
+  end
+
+  # Edit the band's info.
+  def edit
+    @title = "Edit Info"
+    @user = User.find(session[:user_id])
+    @bands = @user.bands
+    if param_posted?(:band)
+      if @band.update_attributes(params[:band])
+        flash[:notice] = "Band saved."
+        redirect_to band_url
+      end
+    end
+  end
+
+  def show
+    band_name = params[:name]
+    @band = Band.find_by_band_name(band_name)
+    if @band
+      @title = "Musigigs Band Profile for #{band_name}"
+    else
+      flash[:notice] = "No band #{band_name} at Musigigs!"
+      redirect_to :action => "index"
+    end
+  end
+
+end

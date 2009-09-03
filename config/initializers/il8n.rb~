@@ -1,0 +1,5 @@
+Il8n.load_path += Dir[ File.join(RAILS_ROOT, 'lib', 'locale', '*.{rb,yml}') ]
+Il8n.default_locale = "en" # default language
+LOCALES_DIRECTORY = "#{RAILS_ROOT}/config/locales/"
+
+

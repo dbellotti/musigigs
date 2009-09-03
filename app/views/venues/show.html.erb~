@@ -1,0 +1,56 @@
+<h1><%= @title %></h1>
+
+<div id="page_width">
+  <div id="left_column">
+    <div class="sidebar_box">
+      <h2>
+        <span class="edit_link">
+          <%= link_to '(create new gig)', :controller => 'gigs', :action => 'new' %>
+        </span>        
+        <br clear="all" />
+      </h2>  
+    </div>  
+    <div class="sidebar_box">
+      <h2>
+        <span class="header">Members:</span>
+        <br clear="all" />
+      </h2>
+      <div class="sidebar_box_contents">
+        Members add|remove
+        <br />
+        <br />
+        John Wayne
+        <br />
+        Phill Smith
+      </div>
+    </div>
+    <div class="sidebar_box">
+      <h2>
+        <span class="header">Media:</span>
+        <br clear="all" />
+      </h2>
+      <div class="sidebar_box_contents">
+        Members add|remove
+        <br />
+        <br />
+        John Wayne
+        <br />
+        Phill Smith
+      </div>
+    </div>
+  </div>
+  <div id="main_content">
+    <br />
+    Musigigs venue profile URLs are of the form
+    <blockquote>
+      http://www.musigigs.com/venue/<i>venue_name</i>
+    </blockquote>
+    <br />
+    <br />
+    <span class="edit_link">
+      <%= link_to 'Edit', edit_venue_path(@venue) %> |
+      <%= link_to 'Destroy', @venue, :confirm => 'Are you sure?', :method => :delete %>
+    </span>
+  </div>
+</div>
+

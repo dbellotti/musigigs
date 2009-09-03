@@ -1,41 +1,45 @@
-<h1> Welcome <%= @user.user_name %> of <%= @user.entity_title %></h1><br />
+<h1>Gigs Hub/Search</h1>
 
-<h2>Upcoming Gigs</h2>
-
-You have <%= @gigs.count %> gigs!
-
-<table>
-  <tr>
-    <th>Band</th>
-    <th>Date</th>
-  </tr>
-      
-  <% @gigs.each do |gig| %>
-  <tr>
-    <td><%= link_to gig.band_title, gig_path(gig) %></td>
-    <td><%=h gig.time %></td>
-    <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
-    <td><%= link_to 'Destroy', gig, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-  <% end %>
-</table><br />
-
-<h2>Find new Gigs</h2>
-<% form_tag gigs_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-
-<ul>
-<% @gig_search.each do |gig| %>
-  <li>
-    <%= link_to gig.band_title, gigs_path %>
-  </li>
-<% end %>
-</ul>  
-
-<%= link_to 'add new', new_gig_path %> | 
-<%= link_to 'back', :controller => 'account', :action => 'index' %>
-
+<div id="page_width">
+<hr noshade />
+  <div id="left_column">    
+    <div class="sidebar_box">
+      <% if session[:user_id] %>
+        <h2>        
+          <span class="edit_link">
+            <%= link_to '(create new gig)', :controller => 'gigs', :action => 'new' %>
+          </span>
+          <br clear="all" />
+        </h2>
+      <% end %>
+    </div>
+    <%= render :partial => 'gigs/sidebar_box', :collection => @gigs %>   
+  </div>
+  <div id="main_content">
+    
+    <table>
+      <b>
+      <tr>
+        <th>Gig |</th>
+        <th>Date |</th>
+        <th>Time |</th>
+        <th>Address |</th>
+        <th>Description</th>
+      </tr>
+      </b>
+    <% @gigs.each do |gig| %>
+      <tr>
+        <td><%=h gig.event %></td>
+        <td><%=h gig.date %></td>
+        <td><%=h gig.time %></td>
+        <td><%=h gig.address %></td>
+        <td><%=h gig.description %></td>
+        <td><%= link_to 'Show', gig %></td>
+        <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
+        <td><%= link_to 'Destroy', gig, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+        
+  </div>
+</div>

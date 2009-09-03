@@ -1,0 +1,41 @@
+<h1>Bands Hub/Search</h1>
+
+<div id="page_width">
+<hr noshade />
+  <div id="left_column">    
+    <div class="sidebar_box">
+      <h2>
+        <% if session[:user_id] %>
+          <span class="edit_link">
+            <%= link_to '(create new band)', :controller => 'bands', :action => 'new' %>
+          </span>
+          <br clear="all" />
+        <% end %>
+      </h2>
+    </div>
+    <%= render :partial => 'bands/sidebar_box', :collection => @bands %>   
+  </div>
+  <div id="main_content">
+    
+    <table>
+      <b>
+      <tr>
+        <th>Band |</th>
+        <th>Genre |</th>
+        <th>Description</th>
+      </tr>
+      </b>
+    <% @bands.each do |band| %>
+      <tr>
+        <td><%=h band.name %></td>
+        <td><%=h band.genre %></td>
+        <td><%=h band.description %></td>
+        <td><%= link_to 'Show', band %></td>
+        <td><%= link_to 'Edit', edit_band_path(band) %></td>
+        <td><%= link_to 'Destroy', band, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+        
+  </div>
+</div>

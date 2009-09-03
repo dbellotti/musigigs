@@ -1,0 +1,31 @@
+<div class="sidebar_box">
+  <h2>
+    <% unless hide_edit_links? %>
+      <span class="edit_link">
+        <%= link_to '(edit)', sidebar_box, :action => 'edit' %>
+      </span>
+    <% end %>
+    <span class="header">Venue: <%= link_to sidebar_box.name, sidebar_box %></span>
+    <br clear="all" />
+  </h2>
+  <div>
+    <table>
+      <tr>
+        <td class="label">Address:</td>
+        <td><%= sidebar_box.address %></td>
+      </tr>
+      <tr>
+        <td class="label">Description:</td>
+        <td><%= sidebar_box.description %></td>
+      </tr>
+      <td>
+        <% unless hide_edit_links? %>
+          <span class="edit_link">
+            <%= link_to '(remove)', sidebar_box, :confirm => 'Are you sure?', :method => :delete %>
+          </span>
+        <% end %>
+      </td>
+    </table>
+  </div>
+</div>
+  

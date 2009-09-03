@@ -1,19 +1,22 @@
 class Gig < ActiveRecord::Base
-  has_and_belongs_to_many :user
+  belongs_to :bands
+  belongs_to :venues
+  
+  TEXT_ROWS = 10
+  TEXT_COLS = 40
+  
+  ADDRESS_FIELDS = %w( street city state zip_code )
+  STRING_FIELDS = %w( event street city state zip_code )
+  ZIP_CODE_LENGTH = 5
+   
+  validates_length_of ADDRESS_FIELDS, :maximum => DB_STRING_MAX_LENGTH      
+  validates_length_of :description, :maximum => DB_TEXT_MAX_LENGTH
+  
+  validates_format_of :zip_code, :with => /(^$|^[0-9]{#{ZIP_CODE_LENGTH}}$)/,
+                      :message => "must be a five digit number"  
     
-  def self.search_by_band(search)
-    if search
-      find(:all, :conditions => ['band_title LIKE ?', "%#{search}%"])
-    else
-      find(:all)
-    end
-  end
-
-  def self.search_by_date(search)
-    if search
-      find(:all, :conditions => ['date LIKE ?', "%#{search}%"])
-    else
-      find(:all)
-    end
-  end
+  # Return the address (street + city + state + zip).
+  def address
+    [street, city, state, zip_code].join(", ")
+  end   
 end
