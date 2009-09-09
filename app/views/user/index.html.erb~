@@ -57,6 +57,9 @@
       </h2>  
     </div>
     <%= render :partial => 'venues/sidebar_box', :collection => @venues %>    
+    <% unless @gigs.empty? %>
+      <%= render :partial => 'gigs/sidebar_box', :collection => @gigs %>    
+    <% end %>    
   </div>
   <div id="main_content">
     <div id="full_name">

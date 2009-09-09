@@ -9,7 +9,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 HTML_TEXT_FIELD_SIZE = 15
 DB_STRING_MAX_LENGTH = 255
 DB_TEXT_MAX_LENGTH   = 40000
-ZIP_CODE_LENGTH = 5
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.

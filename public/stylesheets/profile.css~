@@ -79,4 +79,8 @@ input {
   font-size: large;
 }
 
+#bio {
+  padding: 10px;
+}
+
 

@@ -1,4 +1,5 @@
 <h1><%= @title %></h1>
+  <%= error_messages_for 'gig' %>
 
 <div id="page_width">
   <div id="left_column">
@@ -8,6 +9,8 @@
         <br clear="all" />
       </h2>
       <div class="sidebar_box_contents">
+        Venue id: <%= @gig.venue_id %>
+        <br />
         Members add|remove
         <br />
         <br />
@@ -22,6 +25,8 @@
         <br clear="all" />
       </h2>
       <div class="sidebar_box_contents">
+        Band id: <%= @gig.band_id %>
+        <br />      
         Members add|remove
         <br />
         <br />
@@ -32,13 +37,27 @@
     </div>
   </div>
   <div id="main_content">
+    Event:
+    <%= @gig.event %>
     <br />
-    some gig info... STUB
+    <br />
+    Date:
+    <br />
+    <%= @gig.date %>
+    <br />
+    <br />
+    Time:
+    <br />
+    <%= @gig.start_time %>    
+    <br />
+    <br />
+    Description:
+    <%= @gig.description %>
     <br />
     <br />
     <span class="edit_link">
-      <%= link_to 'Edit', edit_band_path(@band) %> |
-      <%= link_to 'Destroy', @band, :confirm => 'Are you sure?', :method => :delete %>
+      <%= link_to 'Edit', edit_gig_path(@gig) %> |
+      <%= link_to 'Destroy', @gig, :confirm => 'Are you sure?', :method => :delete %>
     </span>
   </div>
 </div>

@@ -5,7 +5,7 @@
         <%= link_to '(edit)', sidebar_box, :action => 'edit' %>
       </span>
     <% end %>
-    <span class="header">Gig: <%= link_to sidebar_box.name, sidebar_box %></span>
+    <span class="header">Gig: <%= link_to sidebar_box.event, sidebar_box %></span>
     <br clear="all" />
   </h2>
   <div>

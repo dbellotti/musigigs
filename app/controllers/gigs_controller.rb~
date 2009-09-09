@@ -45,20 +45,28 @@ class GigsController < ApplicationController
 
   # GET /gigs/1/edit
   def edit
-    @title = "Edit Gig"
     @gig = Gig.find(params[:id])
     @venue = Venue.find_by_id(@gig.venue_id)
     @band = Band.find_by_id(@gig.band_id)
+    @title = "Edit Gig"
   end
 
   # POST /gigs
   # POST /gigs.xml
   def create
     @user = User.find(session[:user_id])
-    @gig = Gig.new(params[:gig])
     @venue = Venue.find(params[:venue_id])
+    
+    @gig = Gig.new(params[:gig])    
     @gig.venue_id = @venue.id
-    @gig.band_id = "0"
+    @gig.band_id = '0'
+    #@gig.date = Date.new(params[:time]['date(1i)'].to_i, params[:time]['date(2i)'].to_i, params[:time]['date(3i)'].to_i)
+    #@gig.time = Time.new
+    #@gig.time = @gig.time.change( :year  => params[:gig]['time(1i)'].to_s,
+    #                              :month => params[:gig]['time(2i)'].to_s,
+    #                              :day   => params[:gig]['time(3i)'].to_s,
+    #                              :hour  => params[:gig]['time(4i)'].to_s,
+    #                              :min   => params[:gig]['time(5i)'].to_s )                                
 
     respond_to do |format|
       if @gig.save
@@ -78,7 +86,8 @@ class GigsController < ApplicationController
   # PUT /gigs/1.xml
   def update
     @gig = Gig.find(params[:id])
-
+    
+    raise params[:gig].inspect
     respond_to do |format|
       if @gig.update_attributes(params[:gig])
         flash[:notice] = 'Gig was successfully updated.'

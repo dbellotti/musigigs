@@ -29,8 +29,7 @@ ActiveRecord::Schema.define(:version => 20090824214541) do
   create_table "gigs", :force => true do |t|
     t.integer  "venue_id",                    :null => false
     t.integer  "band_id",                     :null => false
-    t.date     "date"
-    t.time     "time"
+    t.datetime "time"
     t.string   "event",       :default => ""
     t.string   "street",      :default => ""
     t.string   "city",        :default => ""

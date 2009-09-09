@@ -21,14 +21,18 @@
       <b>
       <tr>
         <th>Gig |</th>
-        <th>Genre |</th>
+        <th>Date |</th>
+        <th>Time |</th>
+        <th>Address |</th>
         <th>Description</th>
       </tr>
       </b>
     <% @gigs.each do |gig| %>
       <tr>
-        <td><%=h gig.name %></td>
-        <td><%=h gig.genre %></td>
+        <td><%=h gig.event %></td>
+        <td><%=h gig.date %></td>
+        <td><%=h gig.time %></td>
+        <td><%=h gig.address %></td>
         <td><%=h gig.description %></td>
         <td><%= link_to 'Show', gig %></td>
         <td><%= link_to 'Edit', edit_gig_path(gig) %></td>

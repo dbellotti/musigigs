@@ -1,4 +1,4 @@
-<h1>Editing <%= @venue.name %>'s Gig</h1>
+<h1></h1>
 
 <% form_for(@gig) do |form| %>
 <fieldset>
@@ -6,13 +6,17 @@
   <%= error_messages_for 'gig' %>
   
   <div id="form_row">
-    <%= text_field_for form, 'venue_id' %>
-  </div>
-  <div id="form_row">
-    <%= text_field_for form, 'band_id' %>
-  </div>
-  <div id="form_row">
     <%= text_field_for form, 'event' %>
+  </div>
+  <div id="form_row">    
+    <label>Date:</label>
+    <%= form.date_select :time, { :start_year => Time.now.year,
+                                  :end_year => Time.now.year + 2 } %>
+  </div>
+  </ br>
+  <div id="form_row">
+    <label>Time:</label>
+    <%= form.time_select :time, { :minute_step => 15, :ignore_date => true } %>
   </div>
   <div id="form_row">
     <%= text_field_for form, 'street' %>

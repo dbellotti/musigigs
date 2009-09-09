@@ -9,6 +9,8 @@ class UserController < ApplicationController
     @spec = @user.spec ||= Spec.new
     @bands = @user.bands
     @venues = @user.venues
+    @gigs = Gig.collect_all_for(@user)
+    #raise @gigs.inspect
   end
 
   def register
@@ -95,5 +97,5 @@ private
       redirect_to :action => "index"
     end
   end
-  
+   
 end

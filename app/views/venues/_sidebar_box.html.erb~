@@ -5,7 +5,8 @@
         <%= link_to '(edit)', sidebar_box, :action => 'edit' %>
       </span>
     <% end %>
-    <span class="header">Venue: <%= sidebar_box.name %></span>
+    <% raise sidebar_box.inspect %> 
+    <span class="header">Venue: <%= link_to sidebar_box.name, sidebar_box %></span>
     <br clear="all" />
   </h2>
   <div>
