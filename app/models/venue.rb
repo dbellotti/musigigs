@@ -13,7 +13,7 @@ class Venue < ActiveRecord::Base
   
   validates_uniqueness_of :name
   
-  validates_length_of ADDRESS_FIELDS, :maximum => DB_STRING_MAX_LENGTH      
+  validates_length_of STRING_FIELDS, :maximum => DB_STRING_MAX_LENGTH      
   validates_length_of :description, :maximum => DB_TEXT_MAX_LENGTH
   
   validates_format_of :zip_code, :with => /(^$|^[0-9]{#{ZIP_CODE_LENGTH}}$)/,

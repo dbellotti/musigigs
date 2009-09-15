@@ -35,7 +35,8 @@ class GigsController < ApplicationController
   def new
     @user = User.find(session[:user_id])
     @gig = Gig.new
-    @venue = @user.venues.find(params[:id])
+    @venue = Venue.find_by_id(params[:id])
+#    @venue = @user.venues.find(params[:id])
 
     respond_to do |format|
       format.html # new.html.erb

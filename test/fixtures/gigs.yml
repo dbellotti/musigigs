@@ -1,7 +1,31 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+valid_gig:
+  id: 1
+  venue_id: 1
+  band_id: 1
+  time: 2010-06-09T10:50:13-0700
+  event: party
+  street: 123 fake street
+  city: goleta
+  state: ca
+  zip_code: 93117
+  description: testing
+  
+invalid_gig:
+  id: 2
+  venue_id: 2
+  band_id: 2
+  time: 2006-06-09T10:50:13-0700
+  event: a
+  street: a
+  city: a
+  state: a
+  zip_code: 999999
+  description: a
+
+blank_gig:
+  id: 3
+  venue_id: 3
+  band_id: 3
+  time: 2010-06-09T10:50:13-0700  
