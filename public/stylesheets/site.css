@@ -1,7 +1,7 @@
 body {
-  color: #888;
+  color: #666666;
   font-family: sans-serif;
-  background: #1c1c1c;
+  background:#fafafa;
   margin: 0;
 }
 
@@ -14,35 +14,45 @@ body {
 
 #header {
   color: #0AA5C5;
-  background-color: #0D5779;
+  background: url(/images/head_bg.jpg) repeat-x bottom #7372aa;
   font-size: 24pt;
   margin-bottom: 0;
   width: 100%;
-  border-bottom: solid 3px #0AA5C5;
+  border-bottom: solid 1px #a9a9ff;
+}
+
+#footer {
+position:fixed;
+bottom:-28px;
+left:auto;
+right:auto;
+opacity: .2;
 }
 
 #logo {
-  padding: 20px;
+  padding: 0px;
   float: left;
 }
 
 #nav {
-  color: white;
+  color: #ffffff;
   font-size: 12pt;
-  padding: 20px;
+  padding: 10px;
   padding-top: 30px;
   float: right;
   vertical-align: middle;
+  font-weight:bold;
 }
 #nav a, #nav a:visited {
-  color: #0AA5C5;
-  text-decoration: none;
+  color: #ffffff;
+  text-decoration: underline;
+   font-weight:normal;
 }
 #nav b {
   color: gray;
 }
 #nav a:hover {
-  color: gray;
+  color:#FF99CC;
 }
 .links {
   float: right;
@@ -56,13 +66,15 @@ body {
   border-bottom: dashed 2px black;
 }
 #content h1 {
-  font-size: 18pt;
+  font-size: 14pt;
   margin: 0;
-  padding: 10px 0px 10px 0px;
+  padding: 5px 0px 5px 0px;
   width: 100%;
-  border-bottom: solid 6px #1a1a1a;
-  background: #121212;
+  border-bottom: solid 1px #cccccc;
+  color:#000000;
+  background:#ececff;
   text-align: center;
+  margin-bottom:10px;
 }
 #content p {
   padding: 10px;  
@@ -87,15 +99,17 @@ html fieldset {
 
 /* Form Styles */
 fieldset {
-  background-color: #262626;
+  background-color: #ffffff;
   -moz-border-radius: 9px;
   -webkit-border-radius: 11px;
-  border: none;
+  border: 1px #cccccc solid;
   margin: auto;
 }
 legend {
-  color: #0AA5C5;
-  background-color: #222222;
+  color: #000066;
+  font-weight:bold;
+  background-color: #f1f1f1;
+  border:1px solid #999999;
   -moz-border-radius: 7px;
   -webkit-border-radius: 11px;
   padding: .5em 2em;

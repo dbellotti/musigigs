@@ -1,7 +1,7 @@
 /* Profile Styles */
 
 #page_width {
-  width: 70%;
+  width: 900px;
   height: 35em;
   margin: auto;
 }
@@ -31,7 +31,8 @@ input {
 }
 
 .sidebar_box {  
-  background-color: #262626;
+  background-color: #ffffff;
+  border:1px solid #cccccc;
   -moz-border-radius: 9px;
   font-size: 12px;
   margin-bottom: 10px;
@@ -45,7 +46,7 @@ input {
 .sidebar_box h2 {
   margin-top: 0px;
   padding: 6px;
-  background-color: #222222;  
+  background-color: #ececff;  
   -moz-border-radius-topright: 9px;
   -moz-border-radius-topleft: 9px;
   font-size: 13px;
