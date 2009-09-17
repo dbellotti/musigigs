@@ -7,6 +7,7 @@ body {
 
 a, a:visited {color:#000099;}
 a:hover {color:#FF66CC;}
+center table {text-align:left;}
 
 #whole_page {
   width: 100%;
