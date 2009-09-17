@@ -1,7 +1,7 @@
 body {
   color: #666666;
   font-family: sans-serif;
-  background:#fafafa;
+  background:url(/images/background.jpg) center repeat-y #e9eaee;
   margin: 0;
 }
 
@@ -26,10 +26,12 @@ a:hover {color:#FF66CC;}
 
 #footer {
 position:fixed;
-bottom:-28px;
+bottom:-20px;
 left:auto;
 right:auto;
 opacity: .2;
+width:18%;
+z-index:0;
 }
 
 #logo {
@@ -241,3 +243,4 @@ width:350px;
 #f_menu h4 {margin:0px; color:#006600; border-bottom:1px dotted #cccccc;}
 #f_menu p {border:1px solid #2143ab; background: url(/images/head_bg.jpg) repeat-x #7372aa; padding:5px; text-align:center; width:900px; color:#FFFFFF;}
 #f_menu p a, #f_menu p a:visited {color:#FFFFFF;}
+#f_menu p a:hover {color:#FF99CC;}
