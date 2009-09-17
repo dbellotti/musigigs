@@ -14,7 +14,7 @@
         <table id="header">
           <tr>
             <td id="logo">
-              <a href="/" title="book gigs online"><img src="/images/h-musigigs-logo.jpg" title="Musi Gigs - Book gigs online." border="0"></a>
+              Musigigs
             </td>
             <td id="flash">
               <% if flash[:notice] -%>
@@ -45,57 +45,8 @@
       </div>
       
       <div id="content">
-        <%= yield %>      
- <br clear="all" />
-<center>
-    <div id="f_menu">
-      <center>
-        <table>
-          <tbody><tr>
-            <td><h4>ARTISTS / BANDS</h4>
-                <ul>
-                  <li><a href="/artist-pricing.html">Pricing</a></li>
-                  <li><a href="/bands">Band / Artist Settings</a></li>
-
-                  <li><a href="/gigs">Get Gigs</a></li>
-                  <li><a href="/gigs/new">Start Gigs</a></li>
-                  <li><a href="/a-tour-booking.html">Tour Booking</a></li>
-                  <li><a href="/terms-of-service.html">Terms of Service</a></li>
-                </ul></td>
-            <td><h4>VENUES / PROMOTERS</h4>
-
-                <ul>
-                  <li><a href="/venues">Venue Settings</a></li>
-                  <li><a href="/gigs/new">Post Gigs</a></li>
-                  <li><a href="/bands">Browse Bands</a></li>
-                  <li><a href="/">Terms of Service</a></li>
-                </ul></td>
-            <td><h4>BOOKING AGENTS</h4>
-
-                <ul>
-                  <li><a href="/">Pricing</a></li>
-                  <li><a href="/">Band Roster</a></li>
-                  <li><a href="/">Company Settings</a></li>
-                  <li><a href="/">Terms of Service</a></li>
-                </ul></td>
-            <td><h4>Customer Service</h4>
-
-                <ul>
-                  <li><a href="/faq.html">FAQ</a></li>
-                  <li><a href="/site/help">Help</a></li>
-                  <li><a href="/community">Community</a> <!-- like a hub for artists and venues --></li>
-                  <li><a href="/terms-of-service.html">General Terms of Service</a></li>
-                  <li><a href="/user">My Account</a></li>
-
-                </ul></td>
-          </tr>
-        </tbody></table>
-        <p> <a href="/partners.html">Partnership Opportunities</a> | <a href="/advertise.html">Advertise at MusiGigs</a> | <a href="/faq.html">FAQ</a> | <a href="/help.html">Help</a> | <a href="/sitemap.html">Site Map</a> </p>
-
-      </center>
-      <br>
-      Copyright <a href="http://www.glintd.com" target="_blank">Glindt Inc.</a> 2009, All rights reserved. </div>
-  </center>
+        <%= yield %>        
+        <br clear="all" />
       </div>
       
       <% if ENV["RAILS_ENV"] == "development" %>
@@ -127,6 +78,5 @@
         </div>
       <% end %>
    </div>
-   <img src="/images/footer.png" id="footer">
   </body>
 </html>

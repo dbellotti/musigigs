@@ -2,7 +2,7 @@
 
 #page_width {
   width: 900px;
-  height: 35em;
+  min-height: 20em;
   margin: auto;
 }
 

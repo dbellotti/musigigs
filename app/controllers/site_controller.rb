@@ -1,14 +1,14 @@
 class SiteController < ApplicationController
   def index
-    @title = "Welcome to Musigigs!"
+    @title = "Musi Gigs - Perform or book live music."
   end
 
   def about
-    @title = "About Musigigs"
+    @title = "About Musi Gigs"
   end
 
   def help
-    @title = "Musigigs Help"
+    @title = "Musi Gigs Help"
   end
 
 end

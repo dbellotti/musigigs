@@ -5,6 +5,9 @@ body {
   margin: 0;
 }
 
+a, a:visited {color:#000099;}
+a:hover {color:#FF66CC;}
+
 #whole_page {
   width: 100%;
   margin: auto;
@@ -76,6 +79,18 @@ opacity: .2;
   text-align: center;
   margin-bottom:10px;
 }
+
+h3.byline {  font-size: 14pt;
+  margin: 0;
+  padding: 5px 0px 5px 0px;
+  width: 100%;
+  border-bottom: solid 1px #cccccc;
+  color:#000000;
+  background:#ececff;
+  text-align: center;
+  margin-bottom:15px;
+  margin-top:15px;}
+
 #content p {
   padding: 10px;  
   text-align: center;
@@ -183,14 +198,14 @@ label {
 /* Flash Notice Style */
 #notice {
   -moz-border-radius: 9px;
-  border: 1.5px solid yellow;
+  border: 1.5px solid #FF0000;
   /*-moz-border-radius-bottomright: 9px;
   border-bottom: 2px solid yellow;  
   border-left: 2px solid yellow;    
   border-right: 2px solid yellow;*/    
   padding: 1em;
-  background-color: #121212;
-  color: #0AA5C5;
+  background-color: #ffffff;
+  color:#FF0000;
   font: bold smaller sans-serif;
 }
 
@@ -198,3 +213,31 @@ label {
   font-size: 12pt;
   text-align: center;  
 }
+
+/* Index Page */
+
+div.begin {-moz-border-radius:12px;
+border:1px solid #cccccc; background:#ffffff;
+padding:10px;
+width:350px;
+}
+
+#begin ul {margin:5px;}
+#begin li {line-height:40px; list-style:square;}
+
+#begin h2 {margin:0px; text-align:center; width:350px;}
+
+#features {border-top:1px dashed #cccccc; width:900px; border-bottom:1px dashed #cccccc; padding:10px;}
+#features td {vertical-align:top; margin:0px; padding:0px 10px 0px 10px;border-right:1px dashed #cccccc;}
+#features h2 {font-size:14px; font-weight:bold; color:#2143ab; margin:0px; margin-bottom:5px; border-bottom:1px dashed #006600;padding-bottom:5px;}
+#features p {margin:0px; font-size:11px; color:#666666;}
+
+#f_menu {color:#666666; width:900px; text-align:left; font-size:12px; padding:10px;}
+#f_menu a, #f_menu a:visited {color:#666666;}
+#f_menu a:hover {color:#FF6699;}
+#f_menu table {width:800px;}
+#f_menu ul {margin:3px 0px 0px 0px; list-style:square; color:#cccccc;}
+#f_menu td {padding:10px 10px 10px 10px; vertical-align:top;}
+#f_menu h4 {margin:0px; color:#006600; border-bottom:1px dotted #cccccc;}
+#f_menu p {border:1px solid #2143ab; background: url(/images/head_bg.jpg) repeat-x #7372aa; padding:5px; text-align:center; width:900px; color:#FFFFFF;}
+#f_menu p a, #f_menu p a:visited {color:#FFFFFF;}
