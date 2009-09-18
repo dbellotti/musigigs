@@ -1,45 +1,70 @@
 <h1>Gigs Hub/Search</h1>
-
-<div id="page_width">
-<hr noshade />
-  <div id="left_column">    
-    <div class="sidebar_box">
-      <% if session[:user_id] %>
-        <h2>        
-          <span class="edit_link">
-            <%= link_to '(create new gig)', :controller => 'gigs', :action => 'new' %>
-          </span>
-          <br clear="all" />
-        </h2>
-      <% end %>
-    </div>
-    <%= render :partial => 'gigs/sidebar_box', :collection => @gigs %>   
-  </div>
-  <div id="main_content">
-    
-    <table>
-      <b>
-      <tr>
-        <th>Gig |</th>
-        <th>Date |</th>
-        <th>Time |</th>
-        <th>Address |</th>
-        <th>Description</th>
-      </tr>
-      </b>
+  <div id="main_content" style="margin:10px;">
+  <h2>Upcoming Gigs</h2>
+  <div class="upcoming_gigs">
     <% @gigs.each do |gig| %>
-      <tr>
-        <td><%=h gig.event %></td>
-        <td><%=h gig.date %></td>
-        <td><%=h gig.start_time %></td>
-        <td><%=h gig.address %></td>
-        <td><%=h gig.description %></td>
-        <td><%= link_to 'Show', gig %></td>
-        <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
-        <td><%= link_to 'Destroy', gig, :confirm => 'Are you sure?', :method => :delete %></td>
-      </tr>
+ <span>
+ <table id="gig"><tr><td>
+<strong><%=h gig.date %>:</strong> <%= link_to gig.event, gig %>
+<ul>
+        <li><strong>When?</strong><br><%=h gig.start_time %></li>
+        <li><strong>Where?</strong><br><%=h gig.address %></li>
+		<li><strong>Genre?</strong><br>Funk</li></ul>
+<div align="center">
+<%= link_to 'edit', edit_gig_path(gig) %> | 
+<%= link_to 'delete', gig, :confirm => 'Are you sure?', :method => :delete %></div>
+  </td></tr></table>
+</span>
     <% end %>
-    </table>
-        
-  </div>
+<br clear="all" />
 </div>
+</div>
+<h3 class="byline">Calendar Search</h3>
+<table id="calendar" cellpadding="3" cellspacing="0" width="100%">
+<tr class="calendarMenu"><td class="calendarMenu" height="30">
+<strong>Now Showing:</strong> <br />
+<select><option selected="selected">All gigs</option>
+<option>My Solo gigs</option>
+<option>DP Fresh gigs</option>
+</select>
+</td><td width="100%" height="30">
+<table height="30"><tr><td>
+<a href="/calendar-prev.html"><</a> | <a href="/calendar-next.html">></a> </td><td> <input type="button" value="Today" /></td><td> <strong>September 2009</strong></td></tr></table>
+
+</td></tr>
+<tr>
+<td class="calendar" valign="top" width="100%" colspan="2">
+<table id="calendarMain" width="100%" cellspacing="0">
+<tr class="dayNames">
+<td>Sun</td><td>Mon</td><td>Tues</td><td>Wed</td><td>Thurs</td><td>Fri</td><td>Sat</td>
+</tr>
+
+<tr>
+<td class="pn_month"><div>26</div></td><td class="pn_month"><div>27</div></td><td class="pn_month"><div>28</div></td><td class="pn_month"><div>29</div></td><td class="pn_month"><div>30</div></td><td class="pn_month"><div>31</div></td><td><div>Aug 1</div></td>
+</tr>
+
+<tr>
+<td><div>2</div></td><td><div>3</div></td><td><div>4</div></td><td><div>5</div></td><td><div>6</div></td><td><div>7</div></td><td><div>8</div></td>
+</tr>
+
+<tr>
+<td><div>9</div></td><td><div>10</div></td><td><div>11</div></td><td><div>12</div></td><td><div>13</div></td><td><div>14</div></td><td><div>15</div></td>
+</tr>
+
+<tr>
+<td><div>16</div></td><td><div>17</div></td><td><div>18</div></td><td><div>19</div></td><td><div>20</div></td><td><div>21</div></td><td><div>22</div></td>
+</tr>
+
+<tr>
+<td><div>23</div></td><td><div>24</div></td><td><div>25</div></td><td><div>26</div></td><td><div>27</div></td><td><div>28</div></td><td><div>29</div></td>
+</tr>
+
+<tr>
+<td><div>30</div></td><td><div>31</div></td><td class="pn_month"><div>Sep 1</div></td><td class="pn_month"><div>2</div></td><td class="pn_month"><div>3</div></td><td class="pn_month"><div>4</div></td><td class="pn_month"><div>5</div></td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+</table>

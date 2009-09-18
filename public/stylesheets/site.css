@@ -1,7 +1,7 @@
 body {
   color: #666666;
   font-family: sans-serif;
-  background:url(/images/background.jpg) center repeat-y #e9eaee;
+  background:#fafafa;
   margin: 0;
 }
 
@@ -234,6 +234,10 @@ width:350px;
 #features td {vertical-align:top; margin:0px; padding:0px 10px 0px 10px;border-right:1px dashed #cccccc;}
 #features h2 {font-size:14px; font-weight:bold; color:#2143ab; margin:0px; margin-bottom:5px; border-bottom:1px dashed #006600;padding-bottom:5px;}
 #features p {margin:0px; font-size:11px; color:#666666;}
+#features strong {color:#006600;}
+
+#copy {margin:10px; text-align:left; border-top:1px dashed #cccccc; padding-top:10px;}
+#copy p{text-align:left;}
 
 #f_menu {color:#666666; width:900px; text-align:left; font-size:12px; padding:10px;}
 #f_menu a, #f_menu a:visited {color:#666666;}
@@ -245,3 +249,7 @@ width:350px;
 #f_menu p {border:1px solid #2143ab; background: url(/images/head_bg.jpg) repeat-x #7372aa; padding:5px; text-align:center; width:900px; color:#FFFFFF;}
 #f_menu p a, #f_menu p a:visited {color:#FFFFFF;}
 #f_menu p a:hover {color:#FF99CC;}
+
+/* Pages */
+
+#main_content h2 {margin:0px; border-bottom:1px dotted #cccccc;
